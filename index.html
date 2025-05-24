@@ -1,4 +1,4 @@
-! DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
@@ -6,42 +6,55 @@
 <title>Tipos de Hosting</title>
 <style>
 body {
-font-family: 'Segoe UI', sans-serif;
-margin: 0;
-padding: 0;
-background:#f2f2f2;
-color:#333;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background:#f2f2f2;
+  color:#333;
 }
 header {
-background-color:#1e90ff;
-color:white;
-padding: 1rem;
-text-align: center;
+  background-color:#1e90ff;
+  color:white;
+  padding: 1rem;
+  text-align: center;
 }
 .container {
-max-width: 900px;
-margin: 2rem auto;
-padding: 1rem;
-background:white;
-border-radius: 10px;
-box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background:white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 .hosting-type {
-margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
 }
 .hosting-type h3 {
-color:#1e90ff;
-cursor: pointer;
+  color:#1e90ff;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
 }
 .description {
-display: none;
-margin-top: 0.5rem;
+  display: none;
+  margin-top: 0.5rem;
+}
+.example {
+  background-color: #f8f9fa;
+  padding: 0.8rem;
+  border-left: 4px solid #1e90ff;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+}
+.example strong {
+  color: #1e90ff;
 }
 footer {
-text-align: center;
-padding: 1rem;
-margin-top: 2rem;
-background-color:#eee;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  background-color:#eee;
 }
 </style>
 </head>
@@ -54,26 +67,42 @@ background-color:#eee;
 <div class="container">
 <div class="hosting-type">
 <h3 onclick="toggleDescription(0)">Hosting Compartido</h3>
-<p class="description">Ideal para sitios pequenos o principiantes.
-Comparte recursos con otros sitios en el mismo servidor .</p>
+<p class="description">Ideal para sitios pequeños o principiantes. Comparte recursos con otros sitios en el mismo servidor. Es la opción más económica pero con limitaciones en rendimiento.</p>
+<div class="description example">
+  <strong>Ejemplos de proveedores:</strong> Bluehost, HostGator, SiteGround<br>
+  <strong>Casos de uso:</strong> Blogs personales, sitios web pequeños, portafolios digitales<br>
+  <strong>Precio aproximado:</strong> $3-$10/mes
+</div>
 </div>
 
 <div class="hosting-type">
 <h3 onclick="toggleDescription(1)">Hosting VPS</h3>
-<p class="description">Servidor privado virtual.
-Ofrece más control y recursos dedicados que el compartido .</p>
+<p class="description">Servidor privado virtual. Ofrece más control y recursos dedicados que el compartido. Es un equilibrio entre costo y rendimiento.</p>
+<div class="description example">
+  <strong>Ejemplos de proveedores:</strong> DigitalOcean, Linode, Vultr<br>
+  <strong>Casos de uso:</strong> Tiendas online medianas, sitios con tráfico moderado, aplicaciones web<br>
+  <strong>Precio aproximado:</strong> $20-$100/mes
+</div>
 </div>
 
 <div class="hosting-type">
 <h3 onclick="toggleDescription(2)">Hosting Dedicado</h3>
-<p class="description">Un servidor entero solo para ti.
-Recomendado para sitios con alto tráfico o necesidades especiales .</p>
+<p class="description">Un servidor entero solo para ti. Recomendado para sitios con alto tráfico o necesidades especiales. Máximo rendimiento y control.</p>
+<div class="description example">
+  <strong>Ejemplos de proveedores:</strong> Liquid Web, OVH, InMotion Hosting<br>
+  <strong>Casos de uso:</strong> Grandes e-commerce, plataformas SaaS, sitios con millones de visitas<br>
+  <strong>Precio aproximado:</strong> $100-$500+/mes
+</div>
 </div>
 
 <div class="hosting-type">
 <h3 onclick="toggleDescription(3)">Hosting en la Nube (Cloud)</h3>
-<p class="description">Escalable y flexible. Tus archivos estan distribuidos en 
-    multiples servidores .</p>
+<p class="description">Escalable y flexible. Tus archivos están distribuidos en múltiples servidores. Pagas por lo que usas y puede escalar automáticamente.</p>
+<div class="description example">
+  <strong>Ejemplos de proveedores:</strong> AWS (Amazon Web Services), Google Cloud, Microsoft Azure<br>
+  <strong>Casos de uso:</strong> Aplicaciones con tráfico variable, startups tecnológicas, sitios con picos de tráfico<br>
+  <strong>Modelo de precios:</strong> Por uso (puede variar mucho según recursos consumidos)
+</div>
 </div>
 </div>
 
@@ -83,8 +112,8 @@ Recomendado para sitios con alto tráfico o necesidades especiales .</p>
 
 <script>
 function toggleDescription(index) {
-const descriptions = document.querySelectorAll('.description');
-descriptions [index]. style. display = descriptions[index]. style.display === 'block' ? 'none' : 'block';
+  const descriptions = document.querySelectorAll('.description');
+  descriptions[index].style.display = descriptions[index].style.display === 'block' ? 'none' : 'block';
 }
 </script>
 </body>
