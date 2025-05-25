@@ -1,195 +1,162 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tipos de Hosting</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f2f2f2;
-      color: #333;
-    }
-    header {
-      background-color: #1e90ff;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .hosting-type {
-      margin-bottom: 1.5rem;
-    }
-    .hosting-type h3 {
-      color: #1e90ff;
-      cursor: pointer;
-    }
-    .description {
-      display: none;
-      margin-top: 0.5rem;
-    }
-    .description p {
-      margin: 0.5rem 0;
-    }
-    .examples, .pros-cons {
-      margin-top: 0.5rem;
-      padding-left: 1rem;
-      color: #555;
-    }
-    .pros-cons ul {
-      padding-left: 1rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      background-color: #eee;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio de Proyectos Web</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem;
+        }
+        form {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        form input, form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            background-color: #2C3e58;
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0.2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.25 ease-in-out;
+        }
+        .card:hover {
+            transform: scale(1.02);
+        }
+        .card iframe {
+            width: 100%;
+            height: 180px;
+            border: none;
+        }
+        .card-content {
+            padding: 1rem;
+        }
+        .card-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .card-desc {
+            color: #555;
+            font-size: 0.9rem;
+        }
+        footer {
+            background-color: #2C3e58;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Tipos de Hosting</h1>
-    <p>Conoce las opciones para alojar tu sitio web</p>
-  </header>
+    <header>
+        <h1>Portafolio de Proyectos Web</h1>
+        <p>Explora y publica tus proyectos realizados en clase</p>
+    </header>
 
-  <div class="container">
-    <!-- Hosting Compartido -->
-    <div class="hosting-type">
-      <h3 onclick="toggleDescription(0)">Hosting Compartido</h3>
-      <div class="description">
-        <p>El hosting compartido es la opción más económica y fácil de usar. Muchos sitios web comparten los recursos de un mismo servidor.</p>
-        <div class="pros-cons">
-          <strong>Ventajas:</strong>
-          <ul>
-            <li>Precio bajo</li>
-            <li>Configuración sencilla</li>
-            <li>Ideal para principiantes</li>
-          </ul>
-          <strong>Desventajas:</strong>
-          <ul>
-            <li>Rendimiento limitado</li>
-            <li>Menos seguridad</li>
-            <li>Restricciones en personalización</li>
-          </ul>
-        </div>
-        <div class="examples">
-          <strong>Ejemplos:</strong>
-          <ul>
-            <li>Blogs personales (WordPress)</li>
-            <li>Sitios de portafolio</li>
-            <li>Pequeños negocios</li>
-          </ul>
-        </div>
-      </div>
+    <div class="container">
+        <form id="projectForm">
+            <h2>Publicar nuevo proyecto</h2>
+            <input type="text" id="title" placeholder="Título del proyecto" required />
+            <textarea id="description" placeholder="Descripción breve del proyecto" required></textarea>
+            <input type="url" id="link" placeholder="Enlace al proyecto" required />
+            <button type="submit">Publicar</button>
+        </form>
+
+        <div class="grid" id="projectGrid"></div>
     </div>
 
-    <!-- Hosting VPS -->
-    <div class="hosting-type">
-      <h3 onclick="toggleDescription(1)">Hosting VPS</h3>
-      <div class="description">
-        <p>El VPS (Servidor Privado Virtual) divide un servidor físico en varios servidores virtuales con recursos dedicados para cada uno.</p>
-        <div class="pros-cons">
-          <strong>Ventajas:</strong>
-          <ul>
-            <li>Más control sobre el servidor</li>
-            <li>Mejor rendimiento</li>
-            <li>Más seguro que el compartido</li>
-          </ul>
-          <strong>Desventajas:</strong>
-          <ul>
-            <li>Mayor costo</li>
-            <li>Requiere conocimientos técnicos</li>
-          </ul>
-        </div>
-        <div class="examples">
-          <strong>Ejemplos:</strong>
-          <ul>
-            <li>Tiendas en línea medianas</li>
-            <li>Aplicaciones personalizadas</li>
-            <li>Agencias de desarrollo</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <footer>
+        <p>&copy; 2025 Portafolio Virtual | Programación Web</p>
+    </footer>
 
-    <!-- Hosting Dedicado -->
-    <div class="hosting-type">
-      <h3 onclick="toggleDescription(2)">Hosting Dedicado</h3>
-      <div class="description">
-        <p>Con el hosting dedicado, alquilas un servidor físico completo. Es ideal para grandes proyectos que requieren máxima potencia y personalización.</p>
-        <div class="pros-cons">
-          <strong>Ventajas:</strong>
-          <ul>
-            <li>Máximo rendimiento y velocidad</li>
-            <li>Control total del servidor</li>
-            <li>Alta seguridad</li>
-          </ul>
-          <strong>Desventajas:</strong>
-          <ul>
-            <li>Coste elevado</li>
-            <li>Necesita administración técnica</li>
-          </ul>
-        </div>
-        <div class="examples">
-          <strong>Ejemplos:</strong>
-          <ul>
-            <li>Grandes tiendas en línea</li>
-            <li>Portales corporativos</li>
-            <li>Servicios de streaming o videojuegos</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <script>
+        const projects = [
+            {
+                title: "Tienda Virtual",
+                description: "Un sitio web de comercio electrónico creado con HTML, CSS y JS.",
+                link: "",
+            },
+            {
+                title: "Blog Personal",
+                description: "Blog diseñado con diseño responsivo y comentarios dinámicos.",
+                link: "",
+            },
+            {
+                title: "Galeria de Imágenes",
+                description: "Proyecto que utiliza JavaScript para filtrar imágenes por categorías.",
+                link: "",
+            }
+        ];
 
-    <!-- Hosting en la Nube -->
-    <div class="hosting-type">
-      <h3 onclick="toggleDescription(3)">Hosting en la Nube (Cloud)</h3>
-      <div class="description">
-        <p>El hosting en la nube distribuye tus recursos en varios servidores interconectados, ofreciendo alta disponibilidad y escalabilidad.</p>
-        <div class="pros-cons">
-          <strong>Ventajas:</strong>
-          <ul>
-            <li>Escalabilidad automática</li>
-            <li>Alta disponibilidad</li>
-            <li>Paga solo por lo que usas</li>
-          </ul>
-          <strong>Desventajas:</strong>
-          <ul>
-            <li>Costos variables difíciles de prever</li>
-            <li>Dependencia del proveedor</li>
-          </ul>
-        </div>
-        <div class="examples">
-          <strong>Ejemplos:</strong>
-          <ul>
-            <li>Aplicaciones web de alto tráfico</li>
-            <li>SaaS (Software como servicio)</li>
-            <li>Plataformas de educación en línea</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+        const projectGrid = document.getElementById('projectGrid');
 
-  <footer>
-    <p>&copy; 2025 AprendeWeb | hosting</p>
-  </footer>
+        function renderProjects() {
+            projectGrid.innerHTML = "";
+            projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <iframe src="${project.link}" loading="lazy"></iframe>
+                    <div class="card-content">
+                        <div class="card-title">${project.title}</div>
+                        <div class="card-desc">${project.description}</div>
+                    </div>
+                `;
+                projectGrid.appendChild(card);
+            });
+        }
 
-  <script>
-    function toggleDescription(index) {
-      const descriptions = document.querySelectorAll('.description');
-      descriptions[index].style.display = descriptions[index].style.display === 'block' ? 'none' : 'block';
-    }
-  </script>
+        document.getElementById('projectForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const title = document.getElementById('title').value.trim();
+            const description = document.getElementById('description').value.trim();
+            const link = document.getElementById('link').value.trim();
+
+            if (title && description && link) {
+                projects.push({ title, description, link });
+                renderProjects();
+                this.reset();
+            }
+        });
+
+        renderProjects();
+    </script>
 </body>
 </html>
